@@ -15,9 +15,10 @@ var SearchView = Backbone.View.extend({
   },
 
   handleKeyup: function(event) {
-    if (event.keyCode === 13) {
-      this.search();
-    }
+    // if (event.keyCode === 13) {
+    clearTimeout(this.delay);
+    this.delay = setTimeout(() => this.search(), 500);
+    // }
   },
 
   search: function() {
