@@ -2,7 +2,13 @@ var VideoPlayerView = Backbone.View.extend({
 
   el: '.player',
 
+  events: {
+    'click .slider': 'toggleAutoplay',
+  },
+
   initialize: function() {
+    this.autoplay = false;
+
     this.collection.on('select', (event) => {
       this.render(event.attributes);
     });
@@ -17,9 +23,18 @@ var VideoPlayerView = Backbone.View.extend({
 
     let videoDetailsView = new VideoDetailsView({collection: this.collection});
 
+    if (this.autoplay) {
+      let urlSrc = $('.embed-responsive-item').attr('src');
+      $('.embed-responsive-item').attr('src', urlSrc + '?autoplay=1');
+    }
+
     return this;
   },
 
-  template: templateURL('src/templates/videoPlayer.html')
+  template: templateURL('src/templates/videoPlayer.html'),
+
+  toggleAutoplay: function() {
+    this.autoplay = !this.autoplay;
+  }
 
 });
