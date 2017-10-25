@@ -26,6 +26,7 @@ var VideoPlayerView = Backbone.View.extend({
     if (this.autoplay) {
       let urlSrc = $('.embed-responsive-item').attr('src');
       $('.embed-responsive-item').attr('src', urlSrc + '?autoplay=1');
+      $('input:checkbox').attr('checked', true);
     }
 
     return this;
