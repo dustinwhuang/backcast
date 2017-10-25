@@ -89,3 +89,10 @@ h5 {
   text-align: center;
   padding: 10px;
 }
+
+pre {
+    display: block;
+    font-family: inherit;
+    white-space: pre;
+    margin: 1em 0;
+}
