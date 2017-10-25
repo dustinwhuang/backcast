@@ -17,7 +17,6 @@ var VideoDetailsView = Backbone.View.extend({
       },
       success: data => {
         console.log('success');
-        console.log(data);
         $('.video-player-details div').html(`<pre>${data.items[0].snippet.description}</pre>`);
       },
       error: data => {
